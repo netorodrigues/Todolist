@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todolist.API", "Todolist.API\Todolist.API.csproj", "{EC2F264A-207C-40C3-AD2F-626702F65478}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "src\Api\Api.csproj", "{EC2F264A-207C-40C3-AD2F-626702F65478}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todolist.Domain", "Todolist.Domain\Todolist.Domain.csproj", "{12C7539B-7EA1-442A-8E4B-2AB8371B1081}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain.csproj", "{12C7539B-7EA1-442A-8E4B-2AB8371B1081}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todolist.Application", "Todolist.Application\Todolist.Application.csproj", "{78D1B041-FF2F-4DEC-9812-10A8C3FAB8CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{78D1B041-FF2F-4DEC-9812-10A8C3FAB8CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todolist.Infrastructure", "Todolist.Infrastructure\Todolist.Infrastructure.csproj", "{996B4637-D9CD-4005-9D01-8EF321B05E75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{996B4637-D9CD-4005-9D01-8EF321B05E75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
