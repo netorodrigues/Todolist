@@ -2,7 +2,7 @@
 
 namespace Domain.ValueObjects
 {
-    public class EntityCode
+    public sealed record EntityCode
     {
         public string Code { get; private set; }
 
