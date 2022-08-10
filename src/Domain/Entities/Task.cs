@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Task
+    public sealed class Task
     {
         public EntityCode Id { get; private set; }
         public string Title { get; private set; }
