@@ -7,7 +7,7 @@ namespace Domain.Entities
         public EntityCode Id { get; private set; }
         public string Title { get; private set; }
         public string Description { get; private set; }
-        public bool isDone { get; private set; }
+        public bool Done { get; private set; }
         public DateTime? ScheduledDate { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public DateTime UpdatedAt { get; private set; }
@@ -17,7 +17,7 @@ namespace Domain.Entities
             Id = new EntityCode();
             Title = title;
             Description = description;
-            isDone = false;
+            Done = false;
             ScheduledDate = scheduledDate;
             CreatedAt = DateTime.UtcNow;
             UpdatedAt = DateTime.UtcNow;
