@@ -1,6 +1,8 @@
-﻿namespace Application.Commands
+﻿using Application.Seedwork.Command;
+
+namespace Application.Commands
 {
-    public class CreateTaskCommand
+    public class CreateTaskCommand : Command
     {
         public string Title { get; set; }
         public string Description { get; set; }
