@@ -1,5 +1,5 @@
+using Api.Mappers;
 using Api.Requests;
-using Application.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +20,7 @@ namespace Todolist.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTask([FromBody] TaskCreateRequest request, CancellationToken cancellationToken)
         {
-            var createTaskCommand = new CreateTaskCommand(request.Title, request.Description, request.ScheduledDate);
+            var createTaskCommand = request.ToCommand();
             var response = await _mediator.Send(createTaskCommand, cancellationToken);
             
             return Ok(response);

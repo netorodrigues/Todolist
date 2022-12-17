@@ -4,7 +4,6 @@
     {
         public static WebApplicationBuilder AddApiServices(this WebApplicationBuilder builder)
         {
-
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             return builder;
@@ -12,7 +11,6 @@
 
         public static WebApplication UseApiServices(this WebApplication app)
         {
-
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
