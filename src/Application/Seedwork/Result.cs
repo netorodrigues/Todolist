@@ -3,11 +3,11 @@
     public class Result
     {
         public int Code { get; set; }
-        public string Message { get; set; }
-        public Result(int code, string message)
+        public string Content { get; set; }
+        public Result(int code, string content)
         {
             Code = code;
-            Message = message;
+            Content = content;
         }
 
     }
