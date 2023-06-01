@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Repositories
+﻿namespace Infrastructure.Seedwork
 {
     public class Repository
     {

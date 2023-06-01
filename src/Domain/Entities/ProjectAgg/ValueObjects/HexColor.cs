@@ -1,7 +1,7 @@
 ﻿using Domain.Exceptions;
 using System.Text.RegularExpressions;
 
-namespace Domain.ValueObjects
+namespace Domain.Entities.ProjectAgg.ValueObjects
 {
     public sealed record HexColor
     {

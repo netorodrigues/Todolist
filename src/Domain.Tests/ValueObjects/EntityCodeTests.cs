@@ -1,5 +1,5 @@
 using Domain.Exceptions;
-using Domain.ValueObjects;
+using Domain.Seedwork;
 
 namespace Domain.Tests.ValueObjects
 {
@@ -20,7 +20,7 @@ namespace Domain.Tests.ValueObjects
 
             //assert
             Assert.IsType<EntityCode>(result);
-            Assert.Equal(guid, result.Code);
+            Assert.Equal(guid, result.Code.ToString());
 
         }
 

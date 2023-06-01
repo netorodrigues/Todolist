@@ -1,5 +1,5 @@
+using Domain.Entities.ProjectAgg.ValueObjects;
 using Domain.Exceptions;
-using Domain.ValueObjects;
 
 namespace Domain.Tests.ValueObjects
 {
