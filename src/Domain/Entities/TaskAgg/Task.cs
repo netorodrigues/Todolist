@@ -1,4 +1,5 @@
-﻿using Domain.Exceptions;
+﻿using Domain.Entities.TaskAgg.Enumerations;
+using Domain.Exceptions;
 using Domain.Seedwork;
 
 namespace Domain.Entities.TaskAgg
@@ -13,8 +14,9 @@ namespace Domain.Entities.TaskAgg
         public DateTime? ScheduledDate { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public DateTime UpdatedAt { get; private set; }
+        public Priority? Priority { get; private set; }
 
-        public Task(string title, string description, string projectId, DateTime? scheduledDate = null)
+        public Task(string title, string description, string projectId, string? priority = null, DateTime? scheduledDate = null)
         {
             Id = new EntityCode();
             ProjectId = new EntityCode(nameof(Task), projectId);
@@ -24,10 +26,11 @@ namespace Domain.Entities.TaskAgg
             SetDueDate(scheduledDate);
             CreatedAt = DateTime.UtcNow;
             UpdatedAt = DateTime.UtcNow;
+            SetPriority(priority);
         }
 
         public Task(string taskId, string projectId, string title, string description,
-            bool done, DateTime createdAt, DateTime updatedAt, DateTime? scheduledDate = null)
+            bool done, DateTime createdAt, DateTime updatedAt, string? priority = null, DateTime? scheduledDate = null)
         {
             Id = new EntityCode(nameof(Task), taskId);
             ProjectId = new EntityCode(nameof(Task), projectId);
@@ -37,6 +40,18 @@ namespace Domain.Entities.TaskAgg
             SetDueDate(scheduledDate);
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
+            SetPriority(priority);
+        }
+
+        public void SetPriority(string? priority)
+        {
+            if (priority is null) return;
+
+            if (Priority.TryFromName(priority, true, out var priorityObject) == false)
+                throw new DomainException($"Trying to define invalid priority to task {Id}. Priority value: {priority}");
+
+            Priority = priorityObject;
+
         }
 
         public void SetDueDate(DateTime? scheduledDate)

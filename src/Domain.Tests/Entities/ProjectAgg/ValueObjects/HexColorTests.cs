@@ -1,11 +1,11 @@
 using Domain.Entities.ProjectAgg.ValueObjects;
 using Domain.Exceptions;
 
-namespace Domain.Tests.ValueObjects
+namespace Domain.Tests.Entities.ProjectAgg.ValueObjects
 {
     public class HexColorTests
     {
-        [Fact(DisplayName =@" CASE 01:
+        [Fact(DisplayName = @" CASE 01:
             GIVEN a valid hexadecimal string with 6 characters after #
             WHEN trying to generate a HexColor value object from it
             SHOULD create valid HexColor object
