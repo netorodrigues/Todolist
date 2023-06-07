@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\CustomerAgg\" />
     <Folder Include="Entities\TagAgg\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Ardalis.SmartEnum" Version="2.1.0" />
+    <PackageReference Include="BCrypt.Net" Version="0.1.0" />
   </ItemGroup>
 
 </Project>
