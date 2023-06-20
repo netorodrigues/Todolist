@@ -1,8 +1,14 @@
+using Domain.Entities.ProjectAgg;
 using Domain.Exceptions;
 using Domain.Seedwork;
 
 namespace Domain.Tests.ValueObjects
 {
+
+    public class EntityTestType
+    {
+    }
+
     public class EntityCodeTests
     {
         [Fact(DisplayName =@" CASE 01:
@@ -16,10 +22,10 @@ namespace Domain.Tests.ValueObjects
             string guid = Guid.NewGuid().ToString();
 
             //act
-            var result = new EntityCode(nameof(EntityCodeTests), guid);
+            var result = new EntityCode<EntityTestType>(guid);
 
             //assert
-            Assert.IsType<EntityCode>(result);
+            Assert.IsType<EntityCode<EntityTestType>>(result);
             Assert.Equal(guid, result.Code.ToString());
 
         }
@@ -35,7 +41,7 @@ namespace Domain.Tests.ValueObjects
             string guid = "invalid-guid";
 
             //act
-            var result = () => new EntityCode(nameof(EntityCodeTests), guid);
+            var result = () => new EntityCode<EntityTestType>(guid);
 
             //assert
             Assert.Throws<InvalidCodeException>(result);

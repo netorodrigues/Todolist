@@ -1,13 +1,14 @@
-﻿using Domain.Entities.TaskAgg.Enumerations;
+﻿using Domain.Entities.ProjectAgg.ValueObjects;
+using Domain.Entities.TaskAgg.Enumerations;
+using Domain.Entities.TaskAgg.ValueObjects;
 using Domain.Exceptions;
-using Domain.Seedwork;
 
 namespace Domain.Entities.TaskAgg
 {
     public sealed class Task
     {
-        public EntityCode Id { get; private set; }
-        public EntityCode ProjectId { get; private set; }
+        public TaskId Id { get; private set; }
+        public ProjectId ProjectId { get; private set; }
         public string Title { get; private set; }
         public string Description { get; private set; }
         public bool Done { get; private set; }
@@ -18,8 +19,8 @@ namespace Domain.Entities.TaskAgg
 
         public Task(string title, string description, string projectId, string? priority = null, DateTime? scheduledDate = null)
         {
-            Id = new EntityCode();
-            ProjectId = new EntityCode(nameof(Task), projectId);
+            Id = new TaskId();
+            ProjectId = new ProjectId(projectId);
             Title = title;
             Description = description;
             Done = false;
@@ -32,8 +33,8 @@ namespace Domain.Entities.TaskAgg
         public Task(string taskId, string projectId, string title, string description,
             bool done, DateTime createdAt, DateTime updatedAt, string? priority = null, DateTime? scheduledDate = null)
         {
-            Id = new EntityCode(nameof(Task), taskId);
-            ProjectId = new EntityCode(nameof(Task), projectId);
+            Id = new TaskId(taskId);
+            ProjectId = new ProjectId(projectId);
             Title = title;
             Description = description;
             Done = done;

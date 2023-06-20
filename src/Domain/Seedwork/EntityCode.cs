@@ -2,7 +2,7 @@
 
 namespace Domain.Seedwork
 {
-    public sealed record EntityCode
+    public record EntityCode<T>
     {
         public Guid Code { get; private set; }
 
@@ -11,13 +11,13 @@ namespace Domain.Seedwork
             Code = Guid.NewGuid();
         }
 
-        public EntityCode(string entity, string code)
+        public EntityCode(string code)
         {
             bool isValid = Guid.TryParse(code, out var guidCode);
 
             if (!isValid)
             {
-                throw new InvalidCodeException(entity, code);
+                throw new InvalidCodeException(nameof(T), code);
             }
 
             Code = guidCode;

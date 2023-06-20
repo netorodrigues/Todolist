@@ -5,14 +5,14 @@ namespace Domain.Entities.CustomerAgg
 {
     public class Customer
     {
-        public EntityCode Id { get; private set; }
+        public CustomerId Id { get; private set; }
         public string Name { get; private set; }
         public Password Password { get; private set; }
         public Email Email { get; private set; }
 
         public Customer(string name, string password, string email) 
         {
-            Id = new EntityCode();
+            Id = new CustomerId();
             Name = name;
             Password = new Password(password);
             Email = new Email(email);
@@ -20,7 +20,7 @@ namespace Domain.Entities.CustomerAgg
 
         public Customer(string id, string name, string password, string email)
         {
-            Id = new EntityCode(nameof(Customer), id);
+            Id = new CustomerId(id);
             Name = name;
             Password = new Password(password);
             Email = new Email(email);

@@ -1,4 +1,6 @@
-﻿using Domain.Exceptions;
+﻿using Domain.Entities.ProjectAgg.ValueObjects;
+using Domain.Entities.TaskAgg.ValueObjects;
+using Domain.Exceptions;
 using Domain.Seedwork;
 using FluentAssertions;
 using DomainTask = Domain.Entities.TaskAgg.Task;
@@ -15,7 +17,7 @@ namespace Domain.Tests.Entities.TaskAgg
             //arrange
             var title = "task-title";
             var description = "task-description";
-            var projectId = new EntityCode();
+            var projectId = new ProjectId();
 
 
             //act
@@ -93,7 +95,7 @@ namespace Domain.Tests.Entities.TaskAgg
         #endregion
         private DomainTask BuildTask()
         {
-            return new DomainTask("a task title", "a task description", new EntityCode().Code.ToString());
+            return new DomainTask("a task title", "a task description", new TaskId().Code.ToString());
         }
     }
 }
