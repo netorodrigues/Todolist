@@ -10,7 +10,5 @@ namespace Infrastructure.Context
 
         }
 
-        public virtual DbSet<Task> Tasks { get; set; }
-
     }
 }

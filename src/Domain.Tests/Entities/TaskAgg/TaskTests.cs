@@ -93,7 +93,7 @@ namespace Domain.Tests.Entities.TaskAgg
 
         }
         #endregion
-        private DomainTask BuildTask()
+        private static DomainTask BuildTask()
         {
             return new DomainTask("a task title", "a task description", new TaskId().Code.ToString());
         }
