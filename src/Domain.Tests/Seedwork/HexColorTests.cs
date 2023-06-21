@@ -4,7 +4,7 @@ using Domain.Seedwork;
 namespace Domain.Tests.Entities.ProjectAgg.ValueObjects
 {
 
-    public class HexColorType
+    public class HexColorTestType
     {
     }
 
@@ -21,10 +21,10 @@ namespace Domain.Tests.Entities.ProjectAgg.ValueObjects
             string color = "#C90076";
 
             //act
-            var result = new HexColor<HexColorType>(color);
+            var result = new HexColor<HexColorTestType>(color);
 
             //assert
-            Assert.IsType<HexColor<HexColorType>>(result);
+            Assert.IsType<HexColor<HexColorTestType>>(result);
             Assert.Equal(color, result.Code);
 
         }
@@ -40,10 +40,10 @@ namespace Domain.Tests.Entities.ProjectAgg.ValueObjects
             string color = "#AAA";
 
             //act
-            var result = new HexColor<HexColorType>(color);
+            var result = new HexColor<HexColorTestType>(color);
 
             //assert
-            Assert.IsType<HexColor<HexColorType>>(result);
+            Assert.IsType<HexColor<HexColorTestType>>(result);
             Assert.Equal(color, result.Code);
 
         }
@@ -59,7 +59,7 @@ namespace Domain.Tests.Entities.ProjectAgg.ValueObjects
             string color = "invalid-color";
 
             //act
-            var result = () => new HexColor<HexColorType>(color);
+            var result = () => new HexColor<HexColorTestType>(color);
 
             //assert
             Assert.Throws<InvalidColorException>(result);
