@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\TagAgg\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Ardalis.SmartEnum" Version="2.1.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
   </ItemGroup>

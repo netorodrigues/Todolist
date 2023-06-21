@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.ProjectAgg.ValueObjects;
+using Domain.Entities.TagAgg;
 using Domain.Entities.TaskAgg.Enumerations;
 using Domain.Entities.TaskAgg.ValueObjects;
 using Domain.Exceptions;
@@ -16,6 +17,8 @@ namespace Domain.Entities.TaskAgg
         public DateTime CreatedAt { get; private set; }
         public DateTime UpdatedAt { get; private set; }
         public Priority? Priority { get; private set; }
+        private List<Tag>? _tags;
+        public IReadOnlyList<Tag>? Tasks => _tags?.AsReadOnly();
 
         public Task(string title, string description, string projectId, string? priority = null, DateTime? scheduledDate = null)
         {
@@ -31,7 +34,7 @@ namespace Domain.Entities.TaskAgg
         }
 
         public Task(string taskId, string projectId, string title, string description,
-            bool done, DateTime createdAt, DateTime updatedAt, string? priority = null, DateTime? scheduledDate = null)
+            bool done, DateTime createdAt, DateTime updatedAt, string? priority = null, DateTime? scheduledDate = null, IEnumerable<Tag>? tags = null)
         {
             Id = new TaskId(taskId);
             ProjectId = new ProjectId(projectId);
@@ -42,6 +45,7 @@ namespace Domain.Entities.TaskAgg
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
             SetPriority(priority);
+            DefineTags(tags);
         }
 
         public void SetPriority(string? priority)
@@ -63,6 +67,19 @@ namespace Domain.Entities.TaskAgg
             ScheduledDate = scheduledDate;
         }
 
+        private void DefineTags(IEnumerable<Tag>? tags)
+        {
+            _tags = tags?.ToList();
+        }
+
+        internal void AddTag(Tag? tag)
+        {
+            if (tag is null) return;
+
+            _tags ??= new List<Tag>();
+
+            _tags.Add(tag);
+        }
 
     }
 }

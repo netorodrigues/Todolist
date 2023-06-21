@@ -1,6 +1,6 @@
-﻿using Domain.Entities.CustomerAgg;
-using Domain.Entities.CustomerAgg.ValueObjects;
+﻿using Domain.Entities.CustomerAgg.ValueObjects;
 using Domain.Entities.ProjectAgg.ValueObjects;
+using Domain.Seedwork;
 using DomainTask = Domain.Entities.TaskAgg.Task;
 
 
