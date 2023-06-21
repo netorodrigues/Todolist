@@ -1,6 +1,5 @@
 ﻿using Domain.Entities.CustomerAgg.ValueObjects;
 using Domain.Entities.TagAgg.ValueObjects;
-using Domain.Seedwork;
 using DomainTask = Domain.Entities.TaskAgg.Task;
 
 namespace Domain.Entities.TagAgg
@@ -10,7 +9,7 @@ namespace Domain.Entities.TagAgg
         public TagId Id { get; private set; }
         public CustomerId CustomerId { get; private set; }
         
-        public HexColor Color { get; private set; }
+        public TagColor Color { get; private set; }
         public bool IsFavorite { get; private set; }
         private List<DomainTask>? _tasks;
         public IReadOnlyList<DomainTask>? Tasks => _tasks?.AsReadOnly();
@@ -20,7 +19,7 @@ namespace Domain.Entities.TagAgg
             Id = new TagId(id);
             CustomerId = new CustomerId(customerId);
             DefineTasks(tasks);
-            Color = new HexColor(nameof(Tag), hexColor);
+            Color = new TagColor(hexColor);
             IsFavorite = isFavorite;
         }
 
@@ -29,7 +28,7 @@ namespace Domain.Entities.TagAgg
             Id = new TagId();
             CustomerId = new CustomerId(customerId);
             DefineTasks(tasks);
-            Color = new HexColor(nameof(Tag), hexColor);
+            Color = new TagColor(hexColor);
             IsFavorite = isFavorite;
         }
 

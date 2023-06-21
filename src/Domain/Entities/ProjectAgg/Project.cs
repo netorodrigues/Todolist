@@ -1,6 +1,5 @@
 ﻿using Domain.Entities.CustomerAgg.ValueObjects;
 using Domain.Entities.ProjectAgg.ValueObjects;
-using Domain.Seedwork;
 using DomainTask = Domain.Entities.TaskAgg.Task;
 
 
@@ -10,7 +9,7 @@ namespace Domain.Entities.ProjectAgg
     {
         public ProjectId Id { get; private set; }
         public string Name { get; private set; }
-        public HexColor Color { get; private set; }
+        public ProjectColor Color { get; private set; }
         public IEnumerable<DomainTask> Tasks { get; private set; }
         public CustomerId CustomerId { get; private set; }
 
@@ -18,7 +17,7 @@ namespace Domain.Entities.ProjectAgg
         {
             Id = new ProjectId();
             Name = name;
-            Color = new HexColor(nameof(Project), color);
+            Color = new ProjectColor(color);
             Tasks = Array.Empty<DomainTask>();
             CustomerId = new CustomerId(customerId);
         }
@@ -27,7 +26,7 @@ namespace Domain.Entities.ProjectAgg
         {
             Id = new ProjectId(projectId);
             Name = name;
-            Color = new HexColor(nameof(Project), color);
+            Color = new ProjectColor(color);
             Tasks = tasks;
             CustomerId = new CustomerId(customerId);
         }

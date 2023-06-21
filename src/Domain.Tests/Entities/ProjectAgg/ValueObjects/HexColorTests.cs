@@ -3,6 +3,11 @@ using Domain.Seedwork;
 
 namespace Domain.Tests.Entities.ProjectAgg.ValueObjects
 {
+
+    public class HexColorType
+    {
+    }
+
     public class HexColorTests
     {
         [Fact(DisplayName = @" CASE 01:
@@ -16,10 +21,10 @@ namespace Domain.Tests.Entities.ProjectAgg.ValueObjects
             string color = "#C90076";
 
             //act
-            var result = new HexColor(nameof(HexColorTests), color);
+            var result = new HexColor<HexColorType>(color);
 
             //assert
-            Assert.IsType<HexColor>(result);
+            Assert.IsType<HexColor<HexColorType>>(result);
             Assert.Equal(color, result.Code);
 
         }
@@ -35,10 +40,10 @@ namespace Domain.Tests.Entities.ProjectAgg.ValueObjects
             string color = "#AAA";
 
             //act
-            var result = new HexColor(nameof(HexColorTests), color);
+            var result = new HexColor<HexColorType>(color);
 
             //assert
-            Assert.IsType<HexColor>(result);
+            Assert.IsType<HexColor<HexColorType>>(result);
             Assert.Equal(color, result.Code);
 
         }
@@ -54,7 +59,7 @@ namespace Domain.Tests.Entities.ProjectAgg.ValueObjects
             string color = "invalid-color";
 
             //act
-            var result = () => new HexColor(nameof(HexColorTests), color);
+            var result = () => new HexColor<HexColorType>(color);
 
             //assert
             Assert.Throws<InvalidColorException>(result);
