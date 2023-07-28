@@ -1,7 +1,6 @@
 ﻿using Domain.Entities.ProjectAgg.ValueObjects;
 using Domain.Entities.TaskAgg.ValueObjects;
 using Domain.Exceptions;
-using Domain.Seedwork;
 using FluentAssertions;
 using DomainTask = Domain.Entities.TaskAgg.Task;
 

@@ -8,7 +8,7 @@ namespace Domain.Entities.TagAgg
     {
         public TagId Id { get; private set; }
         public CustomerId CustomerId { get; private set; }
-        
+
         public TagColor Color { get; private set; }
         public bool IsFavorite { get; private set; }
         private List<DomainTask>? _tasks;
@@ -37,6 +37,7 @@ namespace Domain.Entities.TagAgg
             if (tasks is null) return;
 
             _tasks = tasks.ToList();
+            _tasks.ForEach(task => task.AddTag(this));
         }
 
         public void AddTask(DomainTask? task)
@@ -44,7 +45,7 @@ namespace Domain.Entities.TagAgg
             if (task is null) return;
 
             _tasks ??= new List<DomainTask>();
-            
+
             _tasks.Add(task);
             task.AddTag(this);
         }

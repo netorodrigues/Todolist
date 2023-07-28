@@ -18,7 +18,7 @@ namespace Domain.Entities.TaskAgg
         public DateTime UpdatedAt { get; private set; }
         public Priority? Priority { get; private set; }
         private List<Tag>? _tags;
-        public IReadOnlyList<Tag>? Tasks => _tags?.AsReadOnly();
+        public IReadOnlyList<Tag>? Tags => _tags?.AsReadOnly();
 
         public Task(string title, string description, string projectId, string? priority = null, DateTime? scheduledDate = null)
         {
@@ -75,6 +75,7 @@ namespace Domain.Entities.TaskAgg
         internal void AddTag(Tag? tag)
         {
             if (tag is null) return;
+            if (_tags is not null && _tags.Contains(tag)) return;
 
             _tags ??= new List<Tag>();
 
